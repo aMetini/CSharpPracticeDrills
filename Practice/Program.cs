@@ -183,6 +183,75 @@
 //    Console.WriteLine("Invalid month entered. Please try again.", ex.Message);
 //}
 
+//Console.WriteLine("Please enter a month.");
+//var monthInput1 = Console.ReadLine();
+//Console.WriteLine("Please enter an additional month.");
+//var monthInput2 = Console.ReadLine();
+
+//try
+//{
+//    var mthDiff = mon
+//}
+//switch (monthInput)
+//{
+//    case "January":
+//        Console.WriteLine("You entered January-month 1");
+//        break;
+//    case "February":
+//        Console.WriteLine("You entered February-month 2");
+//        break;
+//    case "March":
+//        Console.WriteLine("You entered March-month 3");
+//        break;
+//    case "April":
+//        Console.WriteLine("You entered April-month 4");
+//        break;
+//    case "May":
+//        Console.WriteLine("You entered May-month 5");
+//        break;
+//    case "June":
+//        Console.WriteLine("You entered June-month 6");
+//        break;
+//    case "July":
+//        Console.WriteLine("You entered July-month 7");
+//        break;
+//    case "August":
+//        Console.WriteLine("You entered August-month 8");
+//        break;
+//    case "September":
+//        Console.WriteLine("You entered September-month 9");
+//        break;
+//    case "October":
+//        Console.WriteLine("You entered October-month 10");
+//        break;
+//    case "November":
+//        Console.WriteLine("You entered November-month 11");
+//        break;
+//    case "December":
+//        Console.WriteLine("You entered December-month 12");
+//        break;
+//    default:
+//        Console.WriteLine("You did not indicate a month.");
+//        break;
+
+//        Console.Read();
+//}
+
+//try
+//{
+//    string[] monthsArray = new string[] { "Invalid month", "January", "February", "March", "April", "May",
+//                                    "June", "July", "August", "September", "October", "November", "December"};
+
+//    Console.WriteLine("Please enter a month as a number");
+//    var inputMonth = Convert.ToInt32(Console.ReadLine());
+
+//    Console.WriteLine(monthsArray[inputMonth]);
+//}
+//catch (Exception ex)
+//{
+//    Console.WriteLine("Invalid month entered. Please try again.", ex.Message);
+//}
+
 //// Problem 8
 //var number = 1;
 
@@ -333,11 +402,42 @@
 
 
 
-// Problem 12
+//// Problem 12 -- Still need to reexamine solution
+//Console.WriteLine("How many numbers would you like to enter?");
+//if (int.TryParse(Console.ReadLine(), out int noOfNumbers))
+//{
+//    int[] numbers = new int[noOfNumbers];
+//    for (int i = 0; i < noOfNumbers; i++)
+//    {
+//        Console.WriteLine($"Indicate number {i + 1}: ");
+//        if (int.TryParse(Console.ReadLine(), out numbers[i]))
+//        {
+//            continue;
+//        }
+//    }
+//    for (int i = noOfNumbers - 1; i >= 0; i--)
+//    {
+//        Console.WriteLine(numbers[i]);
+//    }
+//}
 
-// Problem 13
+// Problem 13 -- Cannot directly reverse a string because by defintion the string type is immutable
 //Console.WriteLine("Please enter your text");
 //var textInput = Console.ReadLine();
+
+//for (int i = textInput.Length - 1; i >= 0; i--)
+//{
+//    Console.WriteLine(textInput[i]);
+//}
+//Console.WriteLine("");
+
+//Console.WriteLine("Please enter your text");
+//var textInput = Console.ReadLine();
+
+//var inputChArr = textInput.ToCharArray();
+//Array.Reverse(inputChArr);
+//Console.WriteLine(inputChArr);
+
 
 //// Use a Linq query and the new string function to make a new string from final text that will be reversed. 
 //var finalText = string.Join(" ", textInput.Split(' ').Select(s => new string(s.Reverse().ToArray())));
@@ -379,28 +479,111 @@
 //Console.WriteLine($"Your text without vowels is: ");
 //Console.WriteLine(textInput);
 
-// Problem 15
-string revInput;
-bool IsPalindrome;
+//// Problem 15
+//string revInput;
+//bool IsPalindrome;
 
-Console.WriteLine("Please enter a word");
-var inputText = Console.ReadLine();
-char[] chLetters = inputText.ToCharArray();
-Array.Reverse(chLetters);
-revInput = new string(chLetters);
-IsPalindrome = inputText.Equals(revInput, StringComparison.OrdinalIgnoreCase);
+//Console.WriteLine("Please enter a word");
+//var inputText = Console.ReadLine();
+//char[] chLetters = inputText.ToCharArray();
+//Array.Reverse(chLetters);
+//revInput = new string(chLetters);
+//IsPalindrome = inputText.Equals(revInput, StringComparison.OrdinalIgnoreCase);
 
-if (IsPalindrome == true)
-{
-    Console.WriteLine($"This text input {inputText} is a Palindrome.");
-}
-else
-{
-    Console.WriteLine($"This text input {inputText} is NOT a Palindrome.");
-}
-Console.ReadKey();
+//if (IsPalindrome == true)
+//{
+//    Console.WriteLine($"This text input {inputText} is a Palindrome.");
+//}
+//else
+//{
+//    Console.WriteLine($"This text input {inputText} is NOT a Palindrome.");
+//}
+//Console.ReadKey();
+
+//// Problem 16
+//char[] operators = { '+', '-', '*', '/'};
+//int no1, no2;
+
+//Console.WriteLine("Please enter a simple mathematical operation (i.e. 2+2).");
+//var mathInput = Console.ReadLine();
+
+//while (mathInput != null)
+//{
+//    // Find the operator in the string mathInput by using IndexOfAny.  Then store it in a variable called index.
+//    var index = mathInput.IndexOfAny(operators, 1);
+//    // To determine a true math calculation entry, use the condition if (index > 0)
+//    if (index > 0)
+//    {
+//        // Find the first substring in the index by using substring with the parameters of index and length of 1). Store this in a variable called calculation
+//        var calculation = mathInput.Substring(index, 1);
+
+//        // To determine a valid calculation, confirm that there are two numbers by parsing our the substring.  We want to find an interger that will represent no1 and no2
+//        if (int.TryParse(mathInput.Substring(0, index), out no1) && int.TryParse(mathInput.Substring(index + 1), out no2))
+//        {
+//            switch (calculation)
+//            {
+//                case "+":
+//                    Console.WriteLine($"The sum of both numbers is: {no1 + no2}");
+//                    break;
+//                case "-":
+//                    Console.WriteLine($"The difference of both numbers is: {no1 - no2}");
+//                    break;
+//                case "*":
+//                    Console.WriteLine($"The product of both numbers is: {no1 * no2}");
+//                    break;
+//                case "/":
+//                    Console.WriteLine($"The quotient of both numbers is: {no1 / no2}");
+//                    break;
+//            }                
+//        }
+//        else
+//        {
+//            Console.WriteLine("Invalid entry.  Please try again.");
+//        }
+//    }
+//    else
+//    {
+//        Console.WriteLine("Invalid entry.  Please try again.");
+//    }
+//    Console.WriteLine("Please enter a simple mathematical operation (i.e. 2+2).");
+//    mathInput = Console.ReadLine();
+//}
 
 
+// Problem 17 -- Not quite right
+//using System.Linq;
 
+//Console.WriteLine("Please enter a text entry.");
+//var textInput = Console.ReadLine();
+
+////string printOutput = new string(textInput.ToArray());
+//Console.WriteLine("Please enter a section of your text entry");
+//var textSnip = Console.ReadLine();
+
+//int position = textInput.IndexOf(textSnip);
+
+//Console.Write(textInput.Substring(0, position));
+//Console.ForegroundColor = ConsoleColor.Blue;
+//Console.Write(textInput.Substring(position, textSnip.Length));
+//Console.ForegroundColor = ConsoleColor.Black;
+//Console.Write(textInput.Substring(position + textSnip.Length));
+//Console.WriteLine(printOutput[5]);
+
+// Problem 18
+//int i;
+//var letterCount = i = 0;
+//Console.WriteLine("Please enter a sentence.");
+//var input = Console.ReadLine();
+//var inputCount = input.Length;
+
+//while (i < inputCount)
+//{
+//    if ((input[i] >= 'a' && input[i] <= 'z') || (input[i] >= 'A' && input[i] <= 'Z'))
+//    {
+//        letterCount++;
+//    }
+//    i++;
+//}
+//Console.WriteLine($"There are {letterCount} letters in your sentence.");
 
 
